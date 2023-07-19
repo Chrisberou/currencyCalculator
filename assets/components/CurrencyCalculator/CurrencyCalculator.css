@@ -1,0 +1,34 @@
+.header-container{
+    border: 3px solid white ;
+    border-color: antiquewhite;
+    border-radius: 25%;
+    color: wheat;
+}
+
+.big-container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(170, 170, 170);
+    align-items: center;
+    border: 2px rgb(131, 122, 122);
+    padding: 10px;
+
+}
+
+.small-container{
+    display: flex;
+    position: center;
+    padding: 10px;
+    align-items: center;
+    gap:10px;
+    
+
+}
+
+.p-properties{
+    color: white;
+  font-weight: bold;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+}

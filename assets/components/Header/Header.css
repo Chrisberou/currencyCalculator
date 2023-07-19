@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2d3031;
+    color: #fff;
+    padding: 16px;
+  }
+  
+  .logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+  }
+  
+  .credentials p {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
