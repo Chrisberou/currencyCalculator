@@ -16,9 +16,8 @@ class App extends Component {
     );
   }
 }
-if (document.getElementById('login')) {
-    console.log('hi')
-}
 
-ReactDom.createRoot(document.getElementById("login")).render(<App />);
+
+
+ReactDom.createRoot(document.getElementById("root")).render(<App />);
 //ReactDOM.render(<App />, document.getElementById("root"));

@@ -1,13 +1,24 @@
 /* Styling for the form container */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 .form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    background-color: #f5f5f5;
-    padding-top: 8%;
-    padding-bottom: 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: #f5f5f5;
+ 
+  padding-bottom: 25%;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
   }
   
   /* Styling for the form header */

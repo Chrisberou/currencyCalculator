@@ -16,10 +16,11 @@ class IndexController extends AbstractController
         ]);
     }
 
-    #[Route('/root', name: 'root_index')]
+    #[Route('/main', name: 'main_index')]
     public function login(): Response
     {
-        return $this->render('index/root.html.twig', [
+        
+        return $this->render('index/main.html.twig', [
             'controller_name' => 'IndexController',
         ]);
     }
