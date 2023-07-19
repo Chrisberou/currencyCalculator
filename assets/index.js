@@ -1,24 +1,26 @@
 import React, { Component } from "react";
 import ReactDom from "react-dom/client";
-import CurrencyCalculator from "./components/CurrencyCalculator/CurrencyCalculator";
 import Header from "./components/Header/Header";
 import "./styles/app.css";
 import Footer from "./components/Footer/Footer";
-import LoginForm from "./components/LoginForm/LogInForm";
+//import LoginForm from "./components/LoginForm/LogInForm";
+import LoginFormTest from "./components/LoginForm/LogInFromTest";
+import CurrencyCalculator from "./components/CurrencyCalculator/CurrencyCalculator";
 
-class App extends Component {
+class LoginApp extends Component {
   render() {
     return (
       <div className="body">
-        <LoginForm/>
+        <Header />
+       <CurrencyCalculator/>
         <Footer />
       </div>
     );
   }
 }
 if (document.getElementById('login')) {
-    console.log('hi')
+    console.log('asdsad')
 }
 
-ReactDom.createRoot(document.getElementById("login")).render(<App />);
+ReactDom.createRoot(document.getElementById("root")).render(<LoginApp />);
 //ReactDOM.render(<App />, document.getElementById("root"));

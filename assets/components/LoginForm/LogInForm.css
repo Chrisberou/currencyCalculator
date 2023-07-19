@@ -1,0 +1,40 @@
+/* Styling for the form container */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #f5f5f5;
+    padding-top: 8%;
+    padding-bottom: 8%;
+  }
+  
+  /* Styling for the form header */
+  .form-header {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Styling for the form fields */
+  .form-field {
+    margin-bottom: 15px;
+    max-width: 300px; /* Adjust the maximum width of the form fields as needed */
+    width: 100%;
+  }
+  
+  /* Styling for the form button */
+  .form-button {
+    margin-top: 10px;
+  }
+  .form-small-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:25px
+    
+  }
+  

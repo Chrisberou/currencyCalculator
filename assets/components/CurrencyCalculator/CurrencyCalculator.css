@@ -1,4 +1,6 @@
 .header-container{
+    padding: 20px;
+    margin-top: 10%;
     border: 3px solid white ;
     border-color: antiquewhite;
     border-radius: 25%;
@@ -10,8 +12,11 @@
     flex-direction: column;
     background-color: rgb(170, 170, 170);
     align-items: center;
+    
     border: 2px rgb(131, 122, 122);
     padding: 10px;
+    height: 82.4%; /* Set height to 100% */
+    
 
 }
 
@@ -32,3 +37,4 @@
   font-size: 18px;
   letter-spacing: 1px;
 }
+

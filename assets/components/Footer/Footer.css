@@ -1,0 +1,15 @@
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(100, 99, 99);
+    height: 7%;
+    color: white;
+    font-weight: bold;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
