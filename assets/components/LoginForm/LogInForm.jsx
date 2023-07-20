@@ -1,6 +1,6 @@
-import React, { Fragment, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
+import axios from 'axios'; // Import Axios library
 import { Button, TextField, Typography } from '@mui/material';
-import { ReactDOM } from 'react';
 import './LogInForm.css';
 
 const LoginForm = () => {
@@ -9,7 +9,7 @@ const LoginForm = () => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     // Get the values from the refs
@@ -26,8 +26,24 @@ const LoginForm = () => {
 
     // If both email and password are valid, submit the form
     if (isEmailValid && isPasswordValid) {
-      // Add your logic here for form submission
-      console.log('Form submitted successfully!');
+      try {
+        // Send login credentials to the Symfony backend using Axios
+        const response = await axios.post('/', {
+          email: emailValue,
+          password: passwordValue,
+        });
+
+        if (response.data.success) {
+          // Successfully logged in, redirect to /main or handle as needed.
+          window.location.href = '/main';
+        } else {
+          // Handle login failure (e.g., show an error message).
+          console.log('Login failed.');
+        }
+      } catch (error) {
+        // Handle any errors that might occur during the login process.
+        console.error('Error during login:', error);
+      }
     }
   };
 
@@ -47,7 +63,7 @@ const LoginForm = () => {
       <Typography variant="h5" component="h2" className="form-header">
         Log In to Continue
       </Typography>
-      <form className='form-small-container' onSubmit={handleSubmit}>
+      <form className='form-small-container' onSubmit={handleSubmit} method='post'>
         <TextField
           label="Email"
           type="email"
@@ -72,16 +88,12 @@ const LoginForm = () => {
           className="form-field"
         />
 
-        <Button type="submit" variant="contained" color="primary" className="form-button">
+        <Button type="submit" variant="contained" color="primary" className="form-button" method="post">
           Submit
         </Button>
       </form>
     </div>
   );
 };
-
-if (document.getElementById("login")) {
-  console.log("eimai edw");
-}
 
 export default LoginForm;
