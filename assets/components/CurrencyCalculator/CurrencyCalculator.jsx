@@ -1,20 +1,86 @@
-import React from "react";
+import React, { useState } from "react";
 import DropdownButton from "../DropDown/dropDown";
 import TextField from "../TextField/TextField";
 import "./CurrencyCalculator.css";
+import { Button } from "@mui/material";
 
 const CurrencyCalculator = () => {
+  const [fromCurrency, setFromCurrency] = useState(null);
+  const [toCurrency, setToCurrency] = useState(null);
+  const [amount, setAmount] = useState("");
+  const [convertedAmount, setConvertedAmount] = useState("");
+
+  const handleConvert = () => {
+    // Make sure fromCurrency and toCurrency are selected
+    
+    if (fromCurrency && toCurrency) {
+      // Fetch the conversion rate from the API and calculate the converted amount
+      fetch(`/api/convert`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          baseCurrency: fromCurrency,
+          targetCurrency: toCurrency,
+          amount: parseFloat(amount),
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // Update the convertedAmount state with the result
+          setConvertedAmount(data.convertedAmount);
+        })
+        .catch((error) => console.error("Error converting currencies:", error));
+    }
+  };
+  const handleFromCurrencyChange = (selectedCurrency) => {
+    console.log('hi')
+    setFromCurrency(selectedCurrency);
+    console.log("Selected From Currency:", selectedCurrency);
+  };
+  const handleToCurrencyChange = (selectedCurrency) => {
+    setToCurrency(selectedCurrency);
+    console.log("Selected to Currency:", selectedCurrency);
+  };
+  const handleSelectedAmountChange=(selectedAmount)=>{
+    setAmount(selectedAmount);
+    console.log("Selected Amount "+selectedAmount);
+  }
+  
+
   return (
     <div className="big-container">
       <h1 className="header-container">Convert Currencies</h1>
       <div className="small-container">
         <p className="p-properties">From</p>
-        <DropdownButton />
-        <TextField name="From" />
+        <DropdownButton
+           onSelectCurrency={handleFromCurrencyChange}
+        />
+        <TextField
+          name="From"
+          value={amount}
+          selectedAmount={handleSelectedAmountChange}
+        />
         <p className="p-properties">To</p>
-        <TextField name="To" />
-        <DropdownButton />
+        <DropdownButton
+          onSelectCurrency={handleToCurrencyChange}
+        />
+        <TextField
+          name="To"
+          value={convertedAmount}
+          readOnly
+        />
       </div>
+      <Button
+        type="submit"
+        variant="contained"
+        color="grey"
+        className="form-button"
+        onClick={handleConvert}
+      >
+        Convert
+      </Button>
     </div>
   );
 };
