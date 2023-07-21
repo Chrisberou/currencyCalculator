@@ -6,10 +6,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="logo">
-        <img src={logo} alt="Calculator Logo" href='/main'/>
-      </div>
-      <div className="credentials">
-        <p>Your Credentials</p>
+        <a href="http://127.0.0.1:8000/main"><img src={logo} alt="Calculator Logo" href='/main'/></a>
       </div>
     </header>
   );

@@ -74,4 +74,11 @@ class IndexController extends AbstractController
         }
     }
     
+    #[Route("/crud",name: 'crud_index')]
+    public function crudIndex(): Response
+    {
+          return $this->render('index/crud.html.twig', [
+            'controller_name' => 'IndexController',
+        ]);
+    }
 }

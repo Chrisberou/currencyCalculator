@@ -5,3 +5,7 @@ controllers:
 app_currency:
     resource: ../src/Controller/CurrencyController.php
     type: annotation
+
+app_react:
+    path: /crud
+    controller: App\Controller\CurrencyController.php    

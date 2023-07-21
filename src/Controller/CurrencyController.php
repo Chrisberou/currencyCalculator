@@ -60,7 +60,80 @@ class CurrencyController extends AbstractController
         return new JsonResponse(['convertedAmount' => $convertedAmount]);
     }
 
-    // Other methods in the controller...
+    #[Route("/api/exchange_rates", methods: ['GET'])]
+    public function getCombinations(): JsonResponse
+    {
+        // Fetch all currency combinations from the database using SQL query
+        $query = 'SELECT * FROM exchange_rate';
+        $combinations = $this->connection->executeQuery($query)->fetchAllAssociative();
+
+        // Return the currency combinations as a JSON response
+        return new JsonResponse($combinations);
+    }
+    #[Route("/api/exchange_rates/add", methods: ['POST'])]
+    public function addCombination(Request $request): JsonResponse
+    {
+        // Get data from the request
+        $data = json_decode($request->getContent(), true);
+        $fromCurrency = $data['baseCurrency'] ?? null;
+        $toCurrency = $data['targetCurrency'] ?? null;
+        $rate = $data['rate'] ?? null;
+
+        // Validate the data
+        if (!$fromCurrency || !$toCurrency || !$rate) {
+            return new JsonResponse(['error' => 'Invalid request data.'], JsonResponse::HTTP_BAD_REQUEST);
+        }
+
+        // Insert the new combination into the database using raw SQL query
+        $sql = "INSERT INTO exchange_rate (base_currency, target_currency, rate) VALUES (?, ?, ?)";
+        $this->connection->executeQuery($sql, [$fromCurrency, $toCurrency, $rate]);
+        
+        $id = $this->connection->lastInsertId();
+
+        $combination = [
+            'id' => $id,
+            'base_currency' => $fromCurrency,
+            'target_currency' => $toCurrency,
+            'rate' => $rate,
+        ];
+        // Return success response
+        return new JsonResponse( $combination);
+    }
+
+    
+    #[Route("/api/exchange_rates/{id}", methods: ['PUT'])]
+    public function updateCombination(Request $request, int $id): JsonResponse
+    {
+        // Get the combination ID from the request
+        $data = json_decode($request->getContent(), true);
+        $fromCurrency = $data['baseCurrency'] ?? null;
+        $toCurrency = $data['targetCurrency'] ?? null;
+        $rate = $data['rate'] ?? null;
+
+        // Validate the data
+        if (!$fromCurrency || !$toCurrency || !$rate) {
+            return new JsonResponse(['error' => 'Invalid request data.'], JsonResponse::HTTP_BAD_REQUEST);
+        }
+
+        // Update the combination in the database using raw SQL query
+        $sql = "UPDATE exchange_rate SET base_currency = ?, target_currency = ?, rate = ? WHERE id = ?";
+        $this->connection->executeQuery($sql, [$fromCurrency, $toCurrency, $rate, $id]);
+
+        // Return success response
+        return new JsonResponse(['message' => 'Combination updated successfully.']);
+    }
+
+   
+    #[Route("/api/exchange_rates/{id}", methods: ['DELETE'])]
+    public function deleteCombination(int $id): JsonResponse
+    {
+        // Delete the combination from the database using raw SQL query
+        $sql = "DELETE FROM exchange_rate WHERE id = ?";
+        $this->connection->executeQuery($sql, [$id]);
+
+        // Return success response
+        return new JsonResponse(['message' => 'Combination deleted successfully.']);
+    }
 }
 
 

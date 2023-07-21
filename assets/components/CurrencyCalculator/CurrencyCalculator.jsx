@@ -81,6 +81,12 @@ const CurrencyCalculator = () => {
       >
         Convert
       </Button>
+      <a href="http://127.0.0.1:8000/crud"><Button
+        type="submit"
+        variant="contained"
+        color="grey"
+        className="form-button"
+      >EDIT DATABASE</Button></a>
     </div>
   );
 };

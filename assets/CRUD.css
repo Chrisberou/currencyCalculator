@@ -1,0 +1,66 @@
+/* CurrencyManagement.css */
+
+/* Styling for the table */
+.table-container {
+  margin-top: 20px;
+  height: 400px; 
+  overflow: auto; 
+}
+
+/* Styling for each row in the table */
+.table-row {
+  cursor: pointer;
+}
+
+/* Styling for the form to add a new combination */
+.form-container {
+  margin-top: 40px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Styling for the labels and input fields in the form */
+.label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Styling for the Add button */
+.add-button {
+  margin-top: 16px;
+}
+
+/* Styling for the Edit and Delete buttons in the table */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* Styling for the button colors */
+.action-buttons .MuiButton-containedPrimary {
+  background-color: #007bff;
+}
+
+.action-buttons .MuiButton-containedSecondary {
+  background-color: #dc3545;
+}
+.add-currency-big-container{
+    display: flex;
+    flex-direction: column;
+}
+.add-currency-small-container{
+   
+    display: flex;
+   gap:50px
+
+}
