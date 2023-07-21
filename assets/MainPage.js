@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer";
 import CurrencyCalculator from "./components/CurrencyCalculator/CurrencyCalculator";
 
 
+
 class MainPage extends Component {
   render() {
     return (

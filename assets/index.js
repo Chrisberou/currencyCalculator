@@ -6,14 +6,17 @@ import Footer from "./components/Footer/Footer";
 //import LoginForm from "./components/LoginForm/LogInForm";
 import LoginFormTest from "./components/LoginForm/LogInFromTest";
 import CurrencyCalculator from "./components/CurrencyCalculator/CurrencyCalculator";
+import { Provider } from "react-redux";
 
 class LoginApp extends Component {
   render() {
     return (
       <div className="body">
+        <Provider store ={store}>
         <Header />
        <CurrencyCalculator/>
         <Footer />
+        </Provider>
       </div>
     );
   }

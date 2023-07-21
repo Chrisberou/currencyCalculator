@@ -88,7 +88,7 @@ const LoginForm = () => {
           className="form-field"
         />
 
-        <Button type="submit" variant="contained" color="primary" className="form-button" method="post">
+        <Button type="submit" variant="contained" color="primary" className="form-button" >
           Submit
         </Button>
       </form>
