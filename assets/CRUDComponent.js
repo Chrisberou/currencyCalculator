@@ -233,9 +233,10 @@ const CurrencyManagement = () => {
         </Button>
       </div>
 
-      <div className="add-currency-big-container">
-        <div className="add-currency-small-container">
-        <h2>Add New Currency</h2>
+      <div className="add-new-currency-big-container">
+      <h2>Add New Currency</h2>
+        <div className="add-new-currency-small-container">
+        
         <TextField
           label="Currency"
           value={currencyCode}

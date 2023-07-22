@@ -82,9 +82,10 @@ class IndexController extends AbstractController
         // Get the current user
         $session = $request->getSession();
         $isLogged = $session->get('isLogged', false); // Retrieve the value of 'isLogged' from the session
+        $isAdmin = $session->get('isAdmin', false);
     
         // Check if the user is logged in
-        if ($isLogged) {
+        if ($isLogged && $isAdmin) {
             // User is logged in, render the main page
             return $this->render('index/crud.html.twig', [
                 'controller_name' => 'IndexController',
