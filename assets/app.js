@@ -9,14 +9,11 @@ class App extends Component {
   render() {
     return (
       <div className="body">
-        <LoginForm/>
+        <LoginForm />
         <Footer />
       </div>
     );
   }
 }
 
-
-
 ReactDom.createRoot(document.getElementById("root")).render(<App />);
-

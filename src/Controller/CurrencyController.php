@@ -134,6 +134,39 @@ class CurrencyController extends AbstractController
         // Return success response
         return new JsonResponse(['message' => 'Combination deleted successfully.']);
     }
+    #[Route("/api/exchange_rates/add/currency", methods: ['POST'])]
+public function addCurrency(Request $request): JsonResponse
+{
+    // Get the currency code and name from the request
+    $data = json_decode($request->getContent(), true);
+    $currencyCode = $data['currencyCode'] ?? null;
+    $currencyName = $data['currencyName'] ?? null;
+
+    // Validate the data
+    if (!$currencyCode || !$currencyName) {
+        return new JsonResponse(['error' => 'Invalid request data.'], JsonResponse::HTTP_BAD_REQUEST);
+    }
+
+    // Check if the currency already exists in the database based on the code
+    $query = 'SELECT * FROM currency WHERE code = :currencyCode';
+    $params = ['currencyCode' => $currencyCode];
+    $existingCurrency = $this->connection->executeQuery($query, $params)->fetchAssociative();
+
+    if ($existingCurrency) {
+        return new JsonResponse(['error' => 'Currency with the same code already exists.'], JsonResponse::HTTP_CONFLICT);
+    }
+
+    // Insert the new currency into the database using raw SQL query
+    $sql = "INSERT INTO currency (code, name) VALUES (?, ?)";
+    $this->connection->executeQuery($sql, [$currencyCode, $currencyName]);
+
+    $id = $this->connection->lastInsertId();
+
+    $currency = ['id' => $id, 'code' => $currencyCode, 'name' => $currencyName];
+
+    // Return success response
+    return new JsonResponse($currency, JsonResponse::HTTP_CREATED);
+}
 }
 
 

@@ -6,19 +6,16 @@ import Footer from "./components/Footer/Footer";
 //import LoginForm from "./components/LoginForm/LogInForm";
 import CurrencyCalculator from "./components/CurrencyCalculator/CurrencyCalculator";
 
-
-
 class MainPage extends Component {
   render() {
     return (
       <div className="body">
         <Header />
-       <CurrencyCalculator/>
+        <CurrencyCalculator />
         <Footer />
       </div>
     );
   }
 }
-
 
 ReactDom.createRoot(document.getElementById("main")).render(<MainPage />);

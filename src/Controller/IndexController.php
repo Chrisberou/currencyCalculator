@@ -44,9 +44,11 @@ class IndexController extends AbstractController
 
         if ($user && $user['password'] === $password) {
             $session = $request->getSession();
+            $isAdmin = $user['admin'] === 1 ? true : false;
               $session->set('isLogged', true);
+              $session->set('isAdmin',$isAdmin);
             // Successfully logged in, return JSON response indicating success.
-            return $this->json(['success' => true]);
+            return new JsonResponse(['success' => true, 'user' => $user]);
         } else {
             // Invalid credentials or user not found, return JSON response indicating failure.
             return $this->json(['success' => false]);
@@ -75,10 +77,23 @@ class IndexController extends AbstractController
     }
     
     #[Route("/crud",name: 'crud_index')]
-    public function crudIndex(): Response
+    public function crudIndex(Request $request): Response
     {
-          return $this->render('index/crud.html.twig', [
-            'controller_name' => 'IndexController',
-        ]);
+        // Get the current user
+        $session = $request->getSession();
+        $isLogged = $session->get('isLogged', false); // Retrieve the value of 'isLogged' from the session
+    
+        // Check if the user is logged in
+        if ($isLogged) {
+            // User is logged in, render the main page
+            return $this->render('index/crud.html.twig', [
+                'controller_name' => 'IndexController',
+            ]);
+            $session->set('isLogged', false);
+        } else {
+            // User is not logged in, redirect to the root path
+            return $this->redirectToRoute('app_index');
+        }
+          
     }
 }

@@ -64,3 +64,22 @@
    gap:50px
 
 }
+
+.edit-dialog-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+.edit-dialog-field {
+  width: 100%;
+}
+
+.add-currency-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:10px;
+}
