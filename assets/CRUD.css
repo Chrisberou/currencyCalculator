@@ -76,9 +76,15 @@
   width: 100%;
 }
 
-.add-currency-container{
+.add-currency-small-container{
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:10px;
+}
+.add-currency-big-container{
+  display: flex;
   align-items: center;
   justify-content: center;
   gap:10px;

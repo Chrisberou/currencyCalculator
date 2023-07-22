@@ -23,7 +23,6 @@ const CurrencyManagement = () => {
   const [rate, setRate] = useState("");
   const [selectedCombination, setSelectedCombination] = useState(null);
   const [editDialogOpen, setEditDialogOpen] = useState(false);
-  const [newCurrency, setNewCurrency] = useState(""); // State to store the new currency
   const [currencyCode, setCurrencyCode] = useState("");
   const [currencyName, setCurrencyName] = useState("");
 
@@ -234,7 +233,8 @@ const CurrencyManagement = () => {
         </Button>
       </div>
 
-      <div className="add-currency-container">
+      <div className="add-currency-big-container">
+        <div className="add-currency-small-container">
         <h2>Add New Currency</h2>
         <TextField
           label="Currency"
@@ -246,6 +246,7 @@ const CurrencyManagement = () => {
           value={currencyName}
           onChange={(e) => setCurrencyName(e.target.value)}
         />
+        </div>
         <Button
           variant="contained"
           color="primary"

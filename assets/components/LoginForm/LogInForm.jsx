@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import axios from "axios"; // Import Axios library
 import { Button, TextField, Typography } from "@mui/material";
 import "./LogInForm.css";
@@ -8,7 +8,7 @@ const LoginForm = () => {
   const passwordRef = useRef(null);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [user, setUser] = useState(null); // State to store the user information
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
