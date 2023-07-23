@@ -2,7 +2,10 @@
 
 namespace App\Entity;
 
-class User
+use Symfony\Component\Security\Core\User\UserInterface;
+
+
+class User 
 {
     private $id;
     private $email;
@@ -58,6 +61,26 @@ class User
         $this->isAdmin = $isAdmin;
         return $this;
     }
+    public function getRoles(): array
+    {
+        return ['ROLE_USER']; 
+    }
 
-    // Other getter/setter methods and business logic if needed.
+    public function getSalt(): ?string
+    {
+       
+        return null;
+    }
+
+    public function getUsername(): string
+    {
+        return $this->email; 
+    }
+
+    public function eraseCredentials()
+    {
+        
+    }
+
+   
 }
