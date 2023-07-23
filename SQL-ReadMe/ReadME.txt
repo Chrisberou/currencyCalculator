@@ -3,7 +3,7 @@
 
 To run the Project after the download and after you have run the sql script to your database (which you will find inside this file). Open the terminal go to directory of the file and run the commands: 
 1)npm install 
-2)composer install (you will need to download composer if you don't have it already)
+2)composer install (you will need to download composer if you don't have it already)(don't worry if you see some Warnings it will still do the installation)
 3)then go to .env file and look if your DATABASE_URL is correct  
 4)symfony server:start (To start the server)(you will need to download symfony if you don't have it already)
 
