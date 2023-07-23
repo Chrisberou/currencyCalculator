@@ -1,7 +1,7 @@
 #Currency Converter task for Procon 
 #Made by Christos Beroukas
 
-To run the Project after the download and after you have run the sql script to your database. Open the terminal go to directory of the file and run the commands: 
+To run the Project after the download and after you have run the sql script to your database (which you will find inside this file). Open the terminal go to directory of the file and run the commands: 
 1)npm install 
 2)composer install (you will need to download composer if you don't have it already)
 3)then go to .env file and look if your DATABASE_URL is correct  
