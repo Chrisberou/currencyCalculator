@@ -1,8 +1,9 @@
 <?php
 // src/Controller/AuthController.php
 
-namespace App\Controller;
+// src/Controller/AuthController.php
 
+namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,3 +20,5 @@ class AuthController extends AbstractController
         return new JsonResponse(['isAdmin' => $isAdmin]);
     }
 }
+
+

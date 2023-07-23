@@ -4,11 +4,11 @@ namespace App\Entity;
 
 class User
 {
-   
     private $id;
     private $email;
     private $password;
     private $isLogged;
+    private $isAdmin; 
 
     public function getId(): ?int
     {
@@ -47,4 +47,17 @@ class User
         $this->isLogged = $isLogged;
         return $this;
     }
+
+    public function getIsAdmin(): ?bool
+    {
+        return $this->isAdmin;
+    }
+
+    public function setIsAdmin(bool $isAdmin): self
+    {
+        $this->isAdmin = $isAdmin;
+        return $this;
+    }
+
+    // Other getter/setter methods and business logic if needed.
 }
