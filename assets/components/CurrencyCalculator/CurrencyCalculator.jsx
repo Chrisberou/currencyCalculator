@@ -68,11 +68,12 @@ const CurrencyCalculator = ({ user }) => {
         <TextField
           name="From"
           value={amount}
+          placeholder={'Input'}
           selectedAmount={handleSelectedAmountChange}
         />
         <p className="p-properties">To</p>
         <DropdownButton onSelectCurrency={handleToCurrencyChange} />
-        <TextField name="To" value={convertedAmount} readOnly />
+        <TextField name="To" value={convertedAmount} placeholder={'Output'} readOnly />
       </div>
       <Button
         type="submit"

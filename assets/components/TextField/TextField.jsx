@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 
 import './TextField.css';
 
-const TextField = ({ name,selectedAmount,value }) => {
+const TextField = ({ name,selectedAmount,value,placeholder }) => {
   const [inputValue, setInputValue] = useState(null);
 
 
@@ -12,7 +12,7 @@ const TextField = ({ name,selectedAmount,value }) => {
   };
   return (
     <div className='text-field'>
-      <input type="text" id={name} name={name} value={value} placeholder='100' className='rounded-textfield' onChange={handleChange}/>
+      <input type="text" id={name} name={name} value={value} placeholder={placeholder} className='rounded-textfield' onChange={handleChange}/>
     </div>
   );
 };
