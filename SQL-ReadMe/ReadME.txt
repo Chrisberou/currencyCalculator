@@ -6,13 +6,15 @@ To run the Project after the download and after you have run the sql script to y
 2)composer install (you will need to download composer if you don't have it already)(don't worry if you see some Warnings it will still do the installation)
 3)then go to .env file and look if your DATABASE_URL is correct  
 4)symfony server:start (To start the server)(you will need to download symfony if you don't have it already)
+#########################
+#Users credentials for logging in :
 
 #Simple User: 
 #Email : 'test@test.com' , Password: 1234
 
 #Admin User:
 #Email : 'testadmin@testadmin.com' , Password: 1234
-
+#########################
 #Project Using:
 #Symfony version : 6.1.12
 
@@ -26,6 +28,6 @@ To run the Project after the download and after you have run the sql script to y
 #React Version :18.2.0
 #React-Dom :18.2.0 
 
-#Users credentials for logging in :
+
 
 
