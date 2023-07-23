@@ -1,12 +1,13 @@
 #Currency Converter task for Procon 
 #Made by Christos Beroukas
 
-To run the Project after the download and after you have run the sql script to your database (which you will find inside this file). Open the terminal go to directory of the file and run the commands: 
+To run the Project after the download and after you have run the sql script to your database (which you will find inside this file). Open the terminal go to directory of the file and run the commands:
 1)npm install 
 2)composer install (you will need to download composer if you don't have it already)(don't worry if you see some Warnings it will still do the installation just takes some time)
-3)then go to .env file and look if your DATABASE_URL is correct  
-4)symfony server:start (To start the server. Keep this terminal running and open another terminal)(you will need to download symfony if you don't have it already)
-5)yarn encore dev --watch(in the other terminal .)(Keep this terminal running)
+3)npm install (again in case something new is needed to be be installed)
+4)then go to .env file and look if your DATABASE_URL is correct  
+5)symfony server:start (To start the server. Keep this terminal running and open another terminal)(you will need to download symfony if you don't have it already)
+6)yarn encore dev --watch(in the other terminal .)(Keep this terminal running)
 Ready to use Currency Converter :D
 #########################
 #Users credentials for logging in :
